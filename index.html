@@ -1,0 +1,58 @@
+
+
+<html ng-app="jsonapp">
+<head>
+<meta charset ="utf-8"name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>tormahiri</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+ <script type="text/javascript" src="css/angular.js"></script>
+ <script type="text/javascript"src="app.js"></script>
+   <style type="text/css">
+
+   </style>
+</head>
+<body ng-controller="myapp" ng-init="getItems()"> 
+  <div class="header">
+<h2>تورماھىرى خۇسۇسى ماقالە ئامبىرى</h2>
+  </div>
+<div class="container" ng-repeat="item in items | startFrom:currentPage*pageSize | limitTo:pageSize">
+
+<div class="title">
+  <p class="tima">
+
+{{item.title}}
+  </p>
+</div>
+<p class="mezmun">
+{{item.desc}}
+</p>
+</div>
+       <center>
+        <div class="konupka">
+  <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1"class="btn btn-danger">
+       ئالدىنقىسى
+    </button>
+
+    <button ng-disabled="currentPage >= items.length/pageSize - 1" ng-click="currentPage=currentPage+1" class="btn btn-danger">
+       كىينكىسى
+    </button>
+        </center>
+</div>
+</div>
+
+  
+
+
+
+
+
+  <div class="footer">
+    <p class="asti">
+بارلىق ھوقۇق تورماھىرى غا مەنسۇپ
+    </p>
+
+  </div>
+</body>
+</html>
